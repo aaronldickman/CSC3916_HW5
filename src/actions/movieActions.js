@@ -1,6 +1,6 @@
 import actionTypes from '../constants/actionTypes';
 import runtimeEnv from '@mars/heroku-js-runtime-env';
-
+import consts from '../constants/consts'
 function moviesFetched(movies) {
     return {
         type: actionTypes.FETCH_MOVIES,
@@ -36,7 +36,8 @@ export function fetchMovies() {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('token')
+                'Authorization': localStorage.getItem('token'),
+                'api_version': consts.API_VERSION
             },
             mode: 'cors'})
             .then( (response) => {
@@ -60,7 +61,8 @@ export function fetchMovie(movieId){
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('token')
+                'Authorization': localStorage.getItem('token'),
+                'api_version': consts.API_VERSION
             },
             mode: 'cors'})
             .then( (response) => {
