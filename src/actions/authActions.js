@@ -1,6 +1,6 @@
 import actionTypes from '../constants/actionTypes';
 import runtimeEnv from '@mars/heroku-js-runtime-env';
-
+const API_VERSION = 1;
 function userLoggedIn(username){
     return {
         type: actionTypes.USER_LOGGEDIN,
@@ -21,7 +21,8 @@ export function submitLogin(data){
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'api_version': API_VERSION
             },
             body: JSON.stringify(data),
             mode: 'cors'})
@@ -48,7 +49,8 @@ export function submitRegister(data){
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'api_version': API_VERSION
             },
             body: JSON.stringify(data),
             mode: 'cors'})
